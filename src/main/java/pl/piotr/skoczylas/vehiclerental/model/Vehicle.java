@@ -23,6 +23,6 @@ public abstract class Vehicle {
 
     @Column(nullable = false)
     @Convert(converter = ConvertLocalDateToSQLDate.class)
-    LocalDate borrow_date;
+    LocalDate borrowDate;
 
 }

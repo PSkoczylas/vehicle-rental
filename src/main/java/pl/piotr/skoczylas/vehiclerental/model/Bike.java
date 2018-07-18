@@ -5,6 +5,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -13,4 +14,10 @@ import javax.persistence.Entity;
 public class Bike extends Vehicle {
     @Column(unique = true)
     Long number;
+
+    public Bike(Long id, LocalDate borrowDate, Long number) {
+        setId(id);
+        setBorrowDate(borrowDate);
+        setNumber(number);
+    }
 }

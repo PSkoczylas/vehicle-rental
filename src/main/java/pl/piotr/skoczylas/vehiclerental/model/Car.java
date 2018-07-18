@@ -23,9 +23,19 @@ public class Car extends Vehicle {
 
     @Column(nullable = false)
     @Convert(converter = ConvertLocalDateToSQLDate.class)
-    LocalDate production_date;
+    LocalDate productionDate;
 
     @Column(nullable = false)
     @Enumerated
     Color myColor;
+
+    public Car(Long id, LocalDate productionDate, Color myColor, LocalDate borrowDate) {
+        setId(id);
+        setProductionDate(productionDate);
+        setProducerName(producerName);
+        setMyColor(myColor);
+        setBorrowDate(borrowDate);
+    }
+
+
 }
