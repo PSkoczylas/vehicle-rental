@@ -6,4 +6,5 @@ import pl.piotr.skoczylas.vehiclerental.model.Bike;
 
 @Repository
 public interface BikeRepository extends JpaRepository<Bike, Long> {
+    Bike getByNumber(Long number);
 }
