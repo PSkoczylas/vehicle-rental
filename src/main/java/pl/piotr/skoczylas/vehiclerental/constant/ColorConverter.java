@@ -1,4 +1,4 @@
-package pl.piotr.skoczylas.vehiclerental.converter;
+package pl.piotr.skoczylas.vehiclerental.constant;
 import pl.piotr.skoczylas.vehiclerental.constant.Color;
 
 import javax.persistence.AttributeConverter;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class BikeDAO {
+public class BikeDao {
     private static List<Bike> bikes;
 
     @Autowired
@@ -21,7 +21,7 @@ public class BikeDAO {
     @Autowired
     private BikeService bikeService;
 
-    public BikeDAO() {
+    public BikeDao() {
         bikes = new ArrayList();
         bikes.add(new Bike(1L, LocalDate.of(1999,2,22), 5L));
         bikes.add(new Bike(2L, LocalDate.of(1991,11,14), 321L));

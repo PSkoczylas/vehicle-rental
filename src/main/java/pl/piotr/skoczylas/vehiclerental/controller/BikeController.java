@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.piotr.skoczylas.vehiclerental.dao.BikeDAO;
+import pl.piotr.skoczylas.vehiclerental.dao.BikeDao;
 import pl.piotr.skoczylas.vehiclerental.model.Bike;
 
 @RestController
@@ -12,11 +12,11 @@ import pl.piotr.skoczylas.vehiclerental.model.Bike;
 @ResponseStatus(HttpStatus.OK)
 public class BikeController {
     @Autowired
-    private BikeDAO bikeDAO;
+    private BikeDao bikeDao;
 
     @PostMapping(value = "/add/{number}")
     public ResponseEntity createBike(@PathVariable Long number) {
-        Bike bike = bikeDAO.createNumber(number);
+        Bike bike = bikeDao.createNumber(number);
         return new ResponseEntity<Bike>(bike, HttpStatus.OK);
     }
     // public bikeDTO

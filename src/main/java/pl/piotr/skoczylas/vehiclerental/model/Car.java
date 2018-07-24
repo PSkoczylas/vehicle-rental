@@ -1,8 +1,6 @@
 package pl.piotr.skoczylas.vehiclerental.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import pl.piotr.skoczylas.vehiclerental.constant.Color;
 import pl.piotr.skoczylas.vehiclerental.constant.ConvertLocalDateToSQLDate;
 
@@ -16,26 +14,31 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
+@Builder
+@EqualsAndHashCode(callSuper = true)
 public class Car extends Vehicle {
-    String name;
+    private String name;
 
-    String producerName;
+    private String producerName;
 
     @NotNull
     @Convert(converter = ConvertLocalDateToSQLDate.class)
-    LocalDate productionDate;
+    private LocalDate productionDate;
 
     @NotNull
     @Enumerated
-    Color myColor;
+    private Color color;
 
     public Car(Long id, LocalDate productionDate, Color myColor, LocalDate borrowDate) {
         setId(id);
         setProductionDate(productionDate);
-        setProducerName(producerName);
-        setMyColor(myColor);
+        this.productionDate = productionDate;
+        this.color = myColor;
         setBorrowDate(borrowDate);
+        setDType("Car");
     }
 
 

@@ -1,8 +1,5 @@
 package pl.piotr.skoczylas.vehiclerental.model;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +12,7 @@ import java.time.LocalDate;
 @ToString
 public class Bike extends Vehicle {
     @Column(unique = true)
-    Long number;
+    private Long number;
 
     private void setValues(Long number, LocalDate localDate) {
         setNumber(number);

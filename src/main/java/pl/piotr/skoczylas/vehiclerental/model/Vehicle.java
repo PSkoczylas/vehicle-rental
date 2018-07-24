@@ -1,8 +1,6 @@
 package pl.piotr.skoczylas.vehiclerental.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import pl.piotr.skoczylas.vehiclerental.constant.ConvertLocalDateToSQLDate;
 
 import javax.persistence.*;
@@ -12,6 +10,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dType")
 public abstract class Vehicle {
@@ -23,6 +23,6 @@ public abstract class Vehicle {
 
     @Column(nullable = false)
     @Convert(converter = ConvertLocalDateToSQLDate.class)
-    LocalDate borrowDate;
+    private LocalDate borrowDate;
 
 }
