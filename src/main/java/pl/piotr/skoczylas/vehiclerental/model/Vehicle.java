@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public abstract class Vehicle {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private long id;
+    private Long id;
     @Column(insertable = false, updatable = false) private String dType;
     // jeszcze nazwa wypozyczajacego
 

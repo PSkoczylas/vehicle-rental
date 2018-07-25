@@ -3,11 +3,9 @@ package pl.piotr.skoczylas.vehiclerental.model;
 import lombok.*;
 import pl.piotr.skoczylas.vehiclerental.constant.Color;
 import pl.piotr.skoczylas.vehiclerental.constant.ConvertLocalDateToSQLDate;
+import pl.piotr.skoczylas.vehiclerental.service.CarService;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -22,7 +20,8 @@ import java.time.LocalDate;
 public class Car extends Vehicle {
     private String name;
 
-    private String producerName;
+    @ManyToOne
+    private Manufacturer manufacturer;
 
     @NotNull
     @Convert(converter = ConvertLocalDateToSQLDate.class)
@@ -38,8 +37,7 @@ public class Car extends Vehicle {
         this.productionDate = productionDate;
         this.color = myColor;
         setBorrowDate(borrowDate);
-        setDType("Car");
+        //setDType("Car");
     }
-
 
 }

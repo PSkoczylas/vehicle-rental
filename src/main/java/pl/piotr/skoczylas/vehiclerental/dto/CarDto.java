@@ -11,12 +11,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-public class CarDto extends VehicleDto {
+public class CarDto {
     private String name;
 
     private Color color;
 
-    private String producerName;
-
+    private String manufacturer;
+    private LocalDate borrowDate;
     private LocalDate productionDate;
 }
