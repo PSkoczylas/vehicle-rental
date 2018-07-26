@@ -22,11 +22,18 @@ public class CarService {
 
     public CarDto add(CarDto carDto) {
         Car car = CarAsm.makeCar(carDto);
-        carRepository.save(car);
+        carRepository.save(applyManufacturer(carDto.getName(), car));
         return carDto;
     }
 
-    public Manufacturer checkManufacturer(String manufacturer) {
-        return manufacturerRepository.findByName(manufacturer);
+    private Car applyManufacturer(String name, Car car) {
+        Manufacturer manufacturer = manufacturerRepository.findByName(name);
+        if (manufacturer == null) {
+            manufacturer = Manufacturer.builder().name(name).build();
+            manufacturerRepository.save(manufacturer);
+        }
+        car.setManufacturer(manufacturer);
+        return car;
     }
+
 }

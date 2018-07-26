@@ -4,6 +4,7 @@ import lombok.*;
 import pl.piotr.skoczylas.vehiclerental.constant.ConvertLocalDateToSQLDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -12,18 +13,20 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "dType")
-public abstract class Vehicle {
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+public class Borrow {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(insertable = false, updatable = false)
-    private String dType;
-    // jeszcze nazwa wypozyczajacego
 
     @Column(nullable = false)
     @Convert(converter = ConvertLocalDateToSQLDate.class)
-    private LocalDate borrowDate;
+    private LocalDate date;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @NotNull
+    private Vehicle vehicle;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @NotNull
+    private Borrower borrower;
 }
