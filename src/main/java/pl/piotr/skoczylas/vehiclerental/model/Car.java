@@ -8,10 +8,10 @@ import pl.piotr.skoczylas.vehiclerental.service.CarService;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -31,12 +31,15 @@ public class Car extends Vehicle {
     @Enumerated
     private Color color;
 
-    public Car(Long id, LocalDate productionDate, Color myColor, LocalDate borrowDate) {
+    public Car(Long id, LocalDate productionDate, Color myColor) {
         setId(id);
         setProductionDate(productionDate);
         this.productionDate = productionDate;
         this.color = myColor;
-        setBorrowDate(borrowDate);
+        Borrow borrow = new Borrow();
+        //borrow.setDate(borrowDate);
+        //borrow.set
+        //setBorrows(getBorrows().add());
         //setDType("Car");
     }
 

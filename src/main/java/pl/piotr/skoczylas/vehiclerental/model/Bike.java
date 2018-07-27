@@ -5,28 +5,24 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Bike extends Vehicle {
     @Column(unique = true)
     private Long number;
 
-    private void setValues(Long number, LocalDate localDate) {
+    private void setValues(Long number) {
         setNumber(number);
-        setBorrowDate(localDate);
-        setDType("Bike");
+        //setDType("Bike");
     }
 
-    public Bike(Long id, LocalDate borrowDate, Long number) {
+    public Bike(Long id, Long number) {
         setId(id);
-        setValues(number, borrowDate);
+        setValues(number);
     }
 
     public Bike(Long number) {
-        setValues(number, LocalDate.now());
+        setValues(number);
     }
 
 }

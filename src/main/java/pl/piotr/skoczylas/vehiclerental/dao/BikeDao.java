@@ -23,8 +23,8 @@ public class BikeDao {
 
     public BikeDao() {
         bikes = new ArrayList();
-        bikes.add(new Bike(1L, LocalDate.of(1999,2,22), 5L));
-        bikes.add(new Bike(2L, LocalDate.of(1991,11,14), 321L));
+        bikes.add(new Bike(1L,  5L));
+        bikes.add(new Bike(2L,  321L));
     }
 
     public List getAllList() { return bikes; }

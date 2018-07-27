@@ -24,9 +24,8 @@ public class Borrow {
 
     @OneToOne(cascade = CascadeType.ALL)
     @NotNull
-    private Vehicle vehicle;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @NotNull
     private Borrower borrower;
+
+    //@ManyToOne
+    //private Vehicle vehicle;
 }

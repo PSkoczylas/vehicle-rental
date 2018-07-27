@@ -19,8 +19,8 @@ public class VehicleDao {
 
     public VehicleDao() {
         vehicles = new ArrayList();
-        vehicles.add(new Car(1L, LocalDate.of(2012, 12, 1), Color.BLUE, LocalDate.of(2014, 11, 21)));
-        vehicles.add(new Car(2L, LocalDate.of(2011, 12, 1), Color.RED, LocalDate.of(2012, 11, 21)));
+        vehicles.add(new Car(1L, LocalDate.of(2012, 12, 1), Color.BLUE));
+        vehicles.add(new Car(2L, LocalDate.of(2011, 12, 1), Color.RED));
     }
 
     public List getAllList() {

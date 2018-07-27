@@ -19,6 +19,6 @@ public class BikeService {
     }
 
     public void updateByNumber(Bike bike) {
-        this.bikeRepository.getOne(bike.getId()).setBorrowDate(LocalDate.now());
+        this.bikeRepository.getOne(bike.getId());
     }
 }

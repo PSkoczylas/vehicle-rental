@@ -5,25 +5,24 @@ import pl.piotr.skoczylas.vehiclerental.constant.ConvertLocalDateToSQLDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dType")
 public abstract class Vehicle {
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    // poczytac o SEQUENCE I IDENTITY i innych strategiach
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
+
     @Column(insertable = false, updatable = false)
     private String dType;
     // jeszcze nazwa wypozyczajacego
 
-    @Column(nullable = false)
-    @Convert(converter = ConvertLocalDateToSQLDate.class)
-    private LocalDate borrowDate;
-
+    //@OneToMany(mappedBy = "vehicle")
+    //private List<Borrow> borrows = new ArrayList<>();
 }
