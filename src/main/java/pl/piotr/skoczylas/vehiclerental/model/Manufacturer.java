@@ -5,10 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@ToString
+@NoArgsConstructor
 @Builder
 public class Manufacturer {
     @Id

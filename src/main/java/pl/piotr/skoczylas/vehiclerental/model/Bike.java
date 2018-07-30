@@ -5,7 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.time.LocalDate;
 
+@Entity
 @Data
+@Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Bike extends Vehicle {
     @Column(unique = true)
@@ -13,7 +16,7 @@ public class Bike extends Vehicle {
 
     private void setValues(Long number) {
         setNumber(number);
-        //setDType("Bike");
+        setDType("Bike");
     }
 
     public Bike(Long id, Long number) {

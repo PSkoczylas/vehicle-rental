@@ -8,11 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Borrow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

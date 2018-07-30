@@ -21,4 +21,15 @@ public class BikeService {
     public void updateByNumber(Bike bike) {
         this.bikeRepository.getOne(bike.getId());
     }
+
+    public Bike createNumber(Long number) {
+        Bike bikeWithGivenNumber = bikeRepository.getByNumber(number);
+
+        if (bikeWithGivenNumber != null) {
+            this.updateByNumber(bikeWithGivenNumber);
+
+            return bikeWithGivenNumber;
+        }
+        return bikeRepository.save(new Bike(number));
+    }
 }

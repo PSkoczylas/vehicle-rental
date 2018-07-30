@@ -11,11 +11,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Builder
 @EqualsAndHashCode(callSuper = true)
 public class Car extends Vehicle {
     private String name;

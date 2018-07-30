@@ -42,14 +42,5 @@ public class BikeDao {
         return bikeRepository.save(bike);
     }
 
-    public Bike createNumber(Long number) {
-        Bike bikeWithGivenNumber = bikeRepository.getByNumber(number);
 
-        if (bikeWithGivenNumber != null) {
-            bikeService.updateByNumber(bikeWithGivenNumber);
-
-            return bikeWithGivenNumber;
-        }
-        return bikeRepository.save(new Bike(number));
-    }
 }

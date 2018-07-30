@@ -7,11 +7,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
+@Data
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
