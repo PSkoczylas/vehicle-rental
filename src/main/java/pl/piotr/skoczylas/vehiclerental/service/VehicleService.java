@@ -33,16 +33,13 @@ public class VehicleService {
     }
 
     public void removeVehicle(Long id) {
-
-
+        Vehicle vehicle = getVehicleOrException(id);
+        vehicleRepository.delete(vehicle);
     }
 
     private Vehicle getVehicleOrException(Long id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
-        if (!vehicle.isPresent()) {
-            throw new NotFoundException("Vehicle with given Id doesn't exist");
-        }
-        return vehicle.get();
+        return  vehicle.orElseThrow(() -> new NotFoundException("Vehicle with given ID doesn't exist"));
     }
 
 }

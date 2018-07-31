@@ -3,11 +3,19 @@ package pl.piotr.skoczylas.vehiclerental.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.piotr.skoczylas.vehiclerental.asm.CarAsm;
+import pl.piotr.skoczylas.vehiclerental.asm.EditCarAsm;
+import pl.piotr.skoczylas.vehiclerental.asm.VehicleAsm;
 import pl.piotr.skoczylas.vehiclerental.dto.CarDto;
+import pl.piotr.skoczylas.vehiclerental.dto.EditCarDto;
+import pl.piotr.skoczylas.vehiclerental.dto.VehicleDto;
+import pl.piotr.skoczylas.vehiclerental.exception.NotFoundException;
 import pl.piotr.skoczylas.vehiclerental.model.Car;
 import pl.piotr.skoczylas.vehiclerental.model.Manufacturer;
+import pl.piotr.skoczylas.vehiclerental.model.Vehicle;
 import pl.piotr.skoczylas.vehiclerental.repository.CarRepository;
 import pl.piotr.skoczylas.vehiclerental.repository.ManufacturerRepository;
+
+import java.util.Optional;
 
 @Service
 public class CarService {
@@ -36,4 +44,13 @@ public class CarService {
         return car;
     }
 
+    public EditCarDto editCar(EditCarDto editCarDto) {
+        Car car = getCarOrException(editCarDto.getId());
+        return EditCarAsm.editCarAsm(editCarDto, car);
+    }
+
+    private Car getCarOrException(Long id) {
+        Optional<Car> car = carRepository.findById(id);
+        return  car.orElseThrow(() -> new NotFoundException("Car with given ID doesn't exist"));
+    }
 }

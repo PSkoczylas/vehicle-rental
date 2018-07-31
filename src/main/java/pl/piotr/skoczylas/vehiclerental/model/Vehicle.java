@@ -24,6 +24,6 @@ public abstract class Vehicle {
     private String dType;
     // jeszcze nazwa wypozyczajacego
 
-    //@OneToMany(mappedBy = "vehicle")
-    //private List<Borrow> borrows = new ArrayList<>();
+    @OneToMany(mappedBy = "vehicle")
+    private List<Borrow> borrow = new ArrayList<>();
 }

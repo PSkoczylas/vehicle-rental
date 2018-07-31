@@ -6,4 +6,5 @@ import pl.piotr.skoczylas.vehiclerental.model.Car;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {
+
 }

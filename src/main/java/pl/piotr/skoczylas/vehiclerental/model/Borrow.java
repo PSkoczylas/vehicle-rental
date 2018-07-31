@@ -25,6 +25,6 @@ public class Borrow {
     @NotNull
     private Borrower borrower;
 
-    //@ManyToOne
-    //private Vehicle vehicle;
+    @ManyToOne
+    private Vehicle vehicle;
 }
