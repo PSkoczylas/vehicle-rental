@@ -22,9 +22,9 @@ public class CarController {
     }
 
 
-    @PostMapping(value = "/{id}")
+    @PostMapping(value = "/edit/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public EditCarDto edit(@PathVariable EditCarDto editCarDto) {
-        return carService.editCar(editCarDto);
+    public EditCarDto edit(@PathVariable Long id, @RequestBody EditCarDto editCarDto) {
+        return carService.editCar(id, editCarDto);
     }
 }

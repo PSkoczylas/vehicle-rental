@@ -5,8 +5,6 @@ import pl.piotr.skoczylas.vehiclerental.constant.Color;
 import pl.piotr.skoczylas.vehiclerental.dto.EditCarDto;
 import pl.piotr.skoczylas.vehiclerental.model.Car;
 
-import java.time.LocalDate;
-
 public class EditCarAsm {
     public static EditCarDto editCarAsm(EditCarDto editCarDto, Car car) {
         editName(editCarDto, car);
