@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.piotr.skoczylas.vehiclerental.dao.VehicleDao;
+import pl.piotr.skoczylas.vehiclerental.dto.BorrowDto;
 import pl.piotr.skoczylas.vehiclerental.dto.VehicleDto;
 import pl.piotr.skoczylas.vehiclerental.model.Vehicle;
 import pl.piotr.skoczylas.vehiclerental.service.VehicleService;
@@ -34,5 +35,11 @@ public class VehicleController {
     @ResponseStatus(HttpStatus.OK)
     public void removeVehicle(@PathVariable Long id) {
         vehicleService.removeVehicle(id);
+    }
+
+    @PostMapping(value = "/borrow")
+    @ResponseStatus(HttpStatus.OK)
+    public void borrow(BorrowDto borrowDto) {
+        vehicleService.borrow(borrowDto);
     }
 }

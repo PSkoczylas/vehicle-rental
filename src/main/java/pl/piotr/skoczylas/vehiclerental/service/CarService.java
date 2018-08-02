@@ -48,6 +48,6 @@ public class CarService {
 
     private Car getCarOrException(Long id) {
         Optional<Car> car = carRepository.findById(id);
-        return  car.orElseThrow(() -> new NotFoundException("Car with given ID doesn't exist"));
+        return car.orElseThrow(() -> new NotFoundException("Car with given ID doesn't exist"));
     }
 }
