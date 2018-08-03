@@ -43,20 +43,9 @@ public class VehicleService {
         vehicleRepository.delete(vehicle);
     }
 
-    public void borrow(BorrowDto borrowDto) {
-        Vehicle vehicle = getVehicleOrException(borrowDto.getVehicleId());
-        Borrower borrower = getBorrowerOrException(borrowDto.getBorrowerId());
-
-    }
-
-    private Vehicle getVehicleOrException(Long id) {
+    public Vehicle getVehicleOrException(Long id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         return  vehicle.orElseThrow(() -> new NotFoundException("Vehicle with given ID doesn't exist"));
-    }
-
-    private Borrower getBorrowerOrException(Long id) {
-        Optional<Borrower> borrower = borrowerRepository.findById(id);
-        return borrower.orElseThrow(() -> new NotFoundException("Borrower with given ID doesn't exist"));
     }
 
 }

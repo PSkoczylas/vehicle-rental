@@ -6,14 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BorrowDto {
-    private Long vehicleId;
-    private LocalDate date;
-    private Long borrowerId;
+public class BorrowerDto {
+    private String firstName;
+    private String lastName;
 }

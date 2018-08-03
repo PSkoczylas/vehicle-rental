@@ -36,10 +36,4 @@ public class VehicleController {
     public void removeVehicle(@PathVariable Long id) {
         vehicleService.removeVehicle(id);
     }
-
-    @PostMapping(value = "/borrow")
-    @ResponseStatus(HttpStatus.OK)
-    public void borrow(BorrowDto borrowDto) {
-        vehicleService.borrow(borrowDto);
-    }
 }
