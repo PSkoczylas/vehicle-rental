@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.piotr.skoczylas.vehiclerental.dao.VehicleDao;
 import pl.piotr.skoczylas.vehiclerental.dto.VehicleDto;
-import pl.piotr.skoczylas.vehiclerental.dto.VehicleWithBorrowDto;
+import pl.piotr.skoczylas.vehiclerental.dto.VehicleBorrowDto;
 import pl.piotr.skoczylas.vehiclerental.service.VehicleService;
 
 import java.time.LocalDate;
@@ -32,8 +32,8 @@ public class VehicleController {
     }
 
     @RequestMapping(value= "show/{date}", method = RequestMethod.GET, produces = "application/json")
-    public List<VehicleWithBorrowDto> getVehiclesWithDateForGivenDay(@PathVariable("date")LocalDate localDate) {
-        return vehicleService.getVehicleWithBorrowForGivenDay(localDate);
+    public List<VehicleBorrowDto> getVehiclesWithDateForGivenDay(@PathVariable("date") String localDate) {
+        return vehicleService.getVehicleWithBorrowForGivenDay(LocalDate.parse(String.valueOf(localDate)));
     }
 
     @DeleteMapping(value = "/delete/{id}")

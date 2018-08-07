@@ -37,10 +37,6 @@ public class Car extends Vehicle {
         this.productionDate = productionDate;
         this.color = myColor;
         Borrow borrow = new Borrow();
-        //borrow.setDate(borrowDate);
-        //borrow.set
-        //setBorrows(getBorrows().add());
-        //setDType("Car");
     }
 
 }

@@ -10,4 +10,11 @@ public class BorrowerAsm {
                 .lastName(borrowerDto.getLastName())
                 .build();
     }
+
+    public static BorrowerDto getBorrowerDto(Borrower borrower) {
+        return BorrowerDto.builder()
+                .firstName(borrower.getFirstName())
+                .lastName(borrower.getLastName())
+                .build();
+    }
 }

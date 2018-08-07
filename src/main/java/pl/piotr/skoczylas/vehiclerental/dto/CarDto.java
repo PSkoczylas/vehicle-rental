@@ -17,6 +17,5 @@ public class CarDto {
     private Color color;
 
     private String manufacturer;
-    private LocalDate borrowDate;
     private LocalDate productionDate;
 }
