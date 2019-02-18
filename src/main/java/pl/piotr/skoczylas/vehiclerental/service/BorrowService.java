@@ -1,6 +1,5 @@
 package pl.piotr.skoczylas.vehiclerental.service;
 
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.piotr.skoczylas.vehiclerental.asm.BorrowAsm;
@@ -19,22 +18,25 @@ import java.util.Optional;
 
 @Service
 public class BorrowService {
-    @Autowired
     private final BorrowRepository borrowRepository;
 
-    @Autowired
     private final BorrowerRepository borrowerRepository;
 
-    @Autowired
-    private VehicleService vehicleService;
+    private final VehicleService vehicleService;
 
-    public BorrowService(BorrowRepository borrowRepository, BorrowerRepository borrowerRepository) {
+    @Autowired
+    public BorrowService(BorrowRepository borrowRepository, BorrowerRepository borrowerRepository, VehicleService vehicleService) {
         this.borrowRepository = borrowRepository;
         this.borrowerRepository = borrowerRepository;
+        this.vehicleService = vehicleService;
     }
 
     public List<BorrowDto> getAllBorrows() {
-        return BorrowAsm.getAllBorrowsDto(borrowRepository.findAll());
+        return this.getAllBorrowsDto(borrowRepository.findAll());
+    }
+
+    protected List<BorrowDto> getAllBorrowsDto(List<Borrow> borrows) {
+        return BorrowAsm.getAllBorrowsDto(borrows);
     }
 
     public BorrowDto borrow(BorrowDto borrowDto) {
@@ -46,14 +48,17 @@ public class BorrowService {
     }
 
     public BorrowerDto addBorrower(BorrowerDto borrowerDto) {
-        Borrower borrower = BorrowerAsm.makeBorrower(borrowerDto);
+        Borrower borrower = this.makeBorrower(borrowerDto);
         borrowerRepository.save(borrower);
         return borrowerDto;
+    }
+
+    protected Borrower makeBorrower(BorrowerDto borrowerDto) {
+        return BorrowerAsm.makeBorrower(borrowerDto);
     }
 
     private Borrower getBorrowerOrException(Long id) {
         Optional<Borrower> borrower = borrowerRepository.findById(id);
         return borrower.orElseThrow(() -> new NotFoundException("Borrower with given ID doesn't exist"));
     }
-
 }

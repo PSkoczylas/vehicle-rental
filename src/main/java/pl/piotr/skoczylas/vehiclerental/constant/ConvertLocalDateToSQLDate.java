@@ -2,9 +2,7 @@ package pl.piotr.skoczylas.vehiclerental.constant;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.text.DateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.sql.Date;
 
 @Converter(autoApply = true)
