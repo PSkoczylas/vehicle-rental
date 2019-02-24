@@ -74,5 +74,4 @@ class BorrowServiceSpec extends Specification {
         then:
         addedBorrowerDto == borrowerDto
     }
-
 }

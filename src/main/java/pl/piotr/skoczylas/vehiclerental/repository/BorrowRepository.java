@@ -6,10 +6,8 @@ import pl.piotr.skoczylas.vehiclerental.model.Borrow;
 import pl.piotr.skoczylas.vehiclerental.model.Vehicle;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Repository
 public interface BorrowRepository  extends JpaRepository<Borrow, Long> {
-    List<Borrow> findAllByDate(LocalDate localDate);
     Borrow findByVehicleAndDate(Vehicle vehicle, LocalDate date);
 }

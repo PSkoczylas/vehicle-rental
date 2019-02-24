@@ -19,9 +19,7 @@ import java.util.Optional;
 @Service
 public class BorrowService {
     private final BorrowRepository borrowRepository;
-
     private final BorrowerRepository borrowerRepository;
-
     private final VehicleService vehicleService;
 
     @Autowired
